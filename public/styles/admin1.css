@@ -1,0 +1,133 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background-color: rgb(17,17,17);
+    color:white;
+    font-family: Arial, sans-serif;
+}
+
+h1{
+    text-align:center;
+    margin:30px 0;
+    color: rgb(245, 174, 76);
+}
+/* Dashboard Stats */
+h2{
+    text-align:center;
+    margin-top:20px;
+    color:rgb(245, 174, 76);
+}
+
+p{
+    text-align:center;
+    margin:10px 0;
+    font-size:18px;
+}
+
+/* Horizontal Line */
+hr{
+    margin:30px auto;
+    width:80%;
+    border:1px solid #333;
+}
+
+/* Form Styling */
+form{
+    width:40%;
+    margin:20px auto;
+    background:#1e1e1e;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.5);
+    text-align:center;
+}
+
+form input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    border:none;
+    border-radius:5px;
+    outline:none;
+}
+
+form input[type="file"]{
+    background:white;
+    color:black;
+}
+
+/* Buttons */
+button{
+    padding:8px 15px;
+    background:rgb(245, 174, 76);
+    border:none;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:rgb(220,150,50);
+}
+
+/* Table */
+table{
+    width:90%;
+    margin:30px auto;
+    border-collapse:collapse;
+    background:#1e1e1e;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+th{
+    background:rgb(245, 174, 76);
+    color:black;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #333;
+}
+
+tr:nth-child(even){
+    background:#2a2a2a;
+}
+
+tr:hover{
+    background:#333;
+}
+
+/* Delete Button */
+td form button{
+    background:red;
+    color:white;
+}
+
+td form button:hover{
+    background:darkred;
+}
+
+/* Links */
+a{
+    display:inline-block;
+    margin:20px 15px;
+    padding:10px 15px;
+    background:rgb(245, 174, 76);
+    color:black;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+a:hover{
+    background:rgb(220,150,50);
+}

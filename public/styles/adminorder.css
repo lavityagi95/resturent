@@ -1,0 +1,106 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background-color: rgb(17,17,17);
+    color:white;
+    font-family: Arial, sans-serif;
+}
+
+h1{
+    text-align:center;
+    margin:30px 0;
+    color: rgb(245, 174, 76);
+}
+
+/* Table */
+table{
+    width:90%;
+    margin:30px auto;
+    border-collapse:collapse;
+    background-color:#1e1e1e;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+/* Table Head */
+th{
+    background-color: rgb(245, 174, 76);
+    color:black;
+    padding:12px;
+    text-transform:uppercase;
+}
+
+/* Table Cells */
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #333;
+}
+
+/* Zebra Effect */
+tr:nth-child(even){
+    background-color:#2a2a2a;
+}
+
+/* Hover Effect */
+tr:hover{
+    background-color:#333;
+}
+
+/* Buttons */
+button{
+    padding:6px 12px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s ease;
+}
+
+/* Accept Button */
+button:hover{
+    opacity:0.85;
+}
+
+/* Specific Buttons */
+button[value="accepted"],
+button[value="delivered"],
+button[value="completed"]{
+    background-color:rgb(76, 175, 80);
+    color:white;
+}
+
+/* Reject Button */
+button[value="rejected"]{
+    background-color:#ff9800;
+    color:black;
+}
+
+/* Delete Button */
+button[style]{
+    background-color:red !important;
+    color:white !important;
+}
+
+/* Back Link */
+a{
+    display:block;
+    width:150px;
+    margin:30px auto;
+    text-align:center;
+    padding:10px;
+    background-color:rgb(245, 174, 76);
+    color:black;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+a:hover{
+    background-color:rgb(220,150,50);
+}

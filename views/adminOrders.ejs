@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adminOrders</title>
+    <link rel="stylesheet" href="/styles/admin1.css">
+</head>
+<body>
+    <h1>All Orders</h1>
+
+<table border="1">
+<tr>
+    <th>User</th>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Status</th>
+    <th>Action</th>
+    <th>Delete</th>
+</tr>
+
+<% orders.forEach(order => { %>
+<tr>
+    <td><%= order.userName %></td>
+    <td><%= order.productName %></td>
+    <td><%= order.quantity %></td>
+    <td><%= order.status %></td>
+
+    <% const status = order.status ? order.status.trim().toLowerCase() : ""; %>
+
+    <!-- ACTION COLUMN -->
+    <td>
+
+        <% if(status === "pending"){ %>
+            <form action="/admin/update-order/<%= order.id %>" method="POST" style="display:inline;">
+                <input type="hidden" name="status" value="accepted">
+                <button>Accept</button>
+            </form>
+
+            <form action="/admin/update-order/<%= order.id %>" method="POST" style="display:inline;">
+                <input type="hidden" name="status" value="rejected">
+                <button>Reject</button>
+            </form>
+        <% } %>
+
+        <% if(status === "accepted"){ %>
+            <form action="/admin/update-order/<%= order.id %>" method="POST">
+                <input type="hidden" name="status" value="delivered">
+                <button>Mark Delivered</button>
+            </form>
+        <% } %>
+
+        <% if(status === "delivered"){ %>
+            <form action="/admin/update-order/<%= order.id %>" method="POST">
+                <input type="hidden" name="status" value="completed">
+                <button>Complete</button>
+            </form>
+        <% } %>
+
+    </td>
+
+    <!-- DELETE COLUMN -->
+    <td >
+        <% if(status === "rejected" || status === "completed"){ %>
+            <a href="/delete-order/<%= order.id %>"
+   onclick="return confirm('Are you sure?')">
+   Delete
+</a>
+
+        <% } else { %>
+            -
+        <% } %>
+    </td>
+
+</tr>
+<% }) %>
+
+</table>
+
+
+<a href="/admin/products">Back</a>
+
+</body>
+</html>

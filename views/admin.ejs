@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/admin1.css">
+</head>
+<body>
+    <%- include("partials/navbar") %>
+
+<h2>Dashboard</h2>
+<p>Total Orders: <b><%= totalOrders %></b></p>
+<p>Total Users: <b><%= totalUsers %></b></p>
+
+
+
+<hr>
+
+    <h1>Admin Panel</h1>
+
+    <form action="/add-product" method="POST" enctype="multipart/form-data" >
+    <h2>Add Product</h2>
+    <input type="text" name="name" placeholder="Product Name" required><br>
+    <input type="number" name="price" placeholder="Price" required><br>
+    <input type="text" name="description" placeholder="Description"><br>
+    <input type="file" name="image" required><br>
+    <button type="submit">Add Product</button>
+</form>
+
+<hr>
+
+<h2>All Products</h2>
+<table border="1" style="justify-content: center ;margin: auto; width: 100%;">
+<tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Delete</th>
+</tr>
+
+<% products.forEach(product => { %>
+<tr>
+    <td><%= product.name %></td>
+    <td>₹ <%= product.price %></td>
+    <td>
+            <form action="/admin/delete-product/<%= product.id %>" method="POST" >
+                <button type="submit">Delete</button>
+            </form>
+    </td>
+</tr>
+<% }) %>
+
+</table>
+
+<a href="/admin-orders">View Orders</a>
+
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/admin.css">
+</head>
+<body>
+    <h1>My Orders</h1>
+<table border="1">
+    <tr>
+        <th>Item Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Status</th>
+    </tr>
+    <% orders.forEach(order => { %>
+        <tr>
+            <td><%= order.name %></td>
+            <td>₹ <%= order.price %></td>
+            <td><%= order.quantity %></td>
+            <td>
+    <% if(order.status === "pending"){ %>
+        <span style="color:orange;">Pending</span>
+    <% } %>
+
+    <% if(order.status === "accepted"){ %>
+        <span style="color:blue;">Accepted</span>
+    <% } %>
+
+    <% if(order.status === "rejected"){ %>
+        <span style="color:red;">Rejected</span>
+    <% } %>
+
+    <% if(order.status === "delivered"){ %>
+        <span style="color:green;">Out for Delivery</span>
+    <% } %>
+
+    <% if(order.status === "completed"){ %>
+        <span style="color:darkgreen;">Completed</span>
+    <% } %>
+</td>
+</td>
+        </tr>
+    <% }) %>
+</table>
+</body>
+</html>

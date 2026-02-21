@@ -1,0 +1,80 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Body */
+body{
+    background-color: rgb(17,17,17);
+    color:white;
+    font-family: Arial, sans-serif;
+}
+
+/* Page Heading */
+h1{
+    text-align:center;
+    margin:30px 0;
+    color: rgb(245, 174, 76);
+}
+
+/* Premium Form */
+.form{
+    width:350px;
+    margin:40px auto;
+    padding:35px;
+    background: linear-gradient(145deg, #1f1f1f, #2b2b2b);
+    border-radius:12px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+
+    box-shadow:
+        0 0 15px rgba(245,174,76,0.2),
+        0 10px 30px rgba(0,0,0,0.6);
+
+    transition:0.3s ease;
+}
+
+.form:hover{
+    transform:translateY(-5px);
+    box-shadow:
+        0 0 20px rgba(245,174,76,0.4),
+        0 15px 35px rgba(0,0,0,0.8);
+}
+
+/* Inputs */
+.form input{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#111;
+    color:white;
+    font-size:14px;
+    outline:none;
+    border:1px solid #333;
+    transition:0.3s;
+}
+
+.form input:focus{
+    border:1px solid rgb(245, 174, 76);
+    box-shadow:0 0 8px rgba(245,174,76,0.5);
+}
+
+/* Button */
+.form button{
+    padding:12px;
+    border:none;
+    border-radius:25px;
+    background: rgb(245, 174, 76);
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.form button:hover{
+    background: #ffb703;
+    transform:scale(1.05);
+}

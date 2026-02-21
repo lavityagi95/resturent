@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/admin.css">
+</head>
+<body>
+    <%- include("partials/navbar") %>
+
+<h1>Your Cart </h1>
+
+<% if(items.length === 0){ %>
+    <p style="text-align:center;">Cart is empty 
+        <a href="/menu" style="color: rgb(71, 71, 227);">Back To Menu</a>
+    </p> 
+    
+<% } else { %>
+
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Total</th>
+    <th>Remove</th>
+</tr>
+
+<% let grandTotal = 0; %>
+
+<% items.forEach(item => { 
+    let total = item.price * item.quantity;
+    grandTotal += total;
+%>
+<tr>
+    <td><%= item.name %></td>
+    <td>₹ <%= item.price %></td>
+    <td><%= item.quantity %></td>
+    <td>₹ <%= total %></td>
+    <td>
+        <a href="/remove-from-cart/<%= item.id %>">
+            <button>Remove</button>
+        </a>
+    </td>
+</tr>
+<% }) %>
+
+<tr>
+    <td colspan="3"><b>Grand Total</b></td>
+    <td colspan="2"><b>₹ <%= grandTotal %></b></td>
+</tr>
+
+</table>
+
+<form action="/checkout" method="POST" style="text-align:center;margin-top:20px;">
+    <button type="submit" onclick="return alert('Your order has been placed successfully!')">Place Order</button>
+</form>
+
+<% } %>
+
+</body>
+</html>

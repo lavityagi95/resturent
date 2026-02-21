@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+    <link rel="stylesheet" href="/styles/common.css">
+</head>
+<body>
+    <h1>Our Menu</h1>
+    <%- include("partials/navbar") %>
+
+
+<div class="menu-container">
+<% products.forEach(product => { %>
+<div class="card">
+    <img src="/images/menuimages/<%= product.image %>" alt="item image">
+    <h2><%= product.name %></h2>
+    <p>₹ <%= product.price %></p>
+
+    <form action="/add-to-cart" method="POST">
+        <input type="hidden" name="productId" value="<%= product.id %>">
+        <div class="cart-controls">
+            <button type="button" onclick="decrease(this)">-</button>
+            <span class="count">1</span>
+            <button type="button" onclick="increase(this)">+</button>
+        </div>
+        <input type="hidden" name="quantity" class="quantity" value="1">
+        <button type="submit">Add to Cart</button>
+    </form>
+</div>
+<% }) %>
+</div>
+
+<script>
+function increase(btn){
+    const span = btn.previousElementSibling;
+    let count = parseInt(span.innerText);
+    count++;
+    span.innerText = count;
+    span.parentElement.nextElementSibling.value = count;
+}
+function decrease(btn){
+    const span = btn.nextElementSibling;
+    let count = parseInt(span.innerText);
+    if(count > 1) count--;
+    span.innerText = count;
+    span.parentElement.nextElementSibling.value = count;
+}
+</script>
+
+</body>
+</html>

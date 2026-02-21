@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Users</title>
+    <link rel="stylesheet" href="/styles/admin.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<h1>All Registered Users</h1>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Role</th>
+</tr>
+
+<% users.forEach(user => { %>
+<tr>
+    <td><%= user.id %></td>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.role %></td>
+</tr>
+<% }) %>
+
+</table>
+
+<a href="/admin/products">Back to Dashboard</a>
+
+</body>
+</html>

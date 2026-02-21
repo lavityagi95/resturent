@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/navbar.css">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="logo">
+        🍽️ Lavi Restaurant
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+
+        <% if(session && session.role === "user"){ %>
+           <% if(session && session.role === "user"){ %>
+    <li><a href="/menu">Menu</a></li>
+    <li><a href="/my-orders">My Orders</a></li>
+    <li>
+        <a href="/cart" class="cart-link">
+            🛒 Cart 
+            <span class="cart-count">
+                <%= session.cart ? session.cart.reduce((total,item)=> total + item.quantity, 0) : 0 %>
+            </span>
+        </a>
+    </li>
+<% } %>
+
+        <% } %>
+
+        <% if(session && session.role === "admin"){ %>
+            <li><a href="/admin/products">Dashboard</a></li>
+            <li><a href="/admin-orders"> View Orders</a></li>
+            <li><a href="/admin/users">View All Users</a></li>
+        <% } %>
+    </ul>
+
+    <div class="auth-section">
+        <% if(session && session.role=== "admin"){ %>
+            <span class="role">👤 <%= session.role.toUpperCase() %></span>
+            <a href="/logout" class="logout-btn">Logout</a>
+        <% } else { %>
+            <a href="/logout" class="logout-btn">Logout</a>
+        <% } %>
+    </div>
+</nav>
+
+</body>
+</html>
