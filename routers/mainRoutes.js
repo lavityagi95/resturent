@@ -19,33 +19,23 @@ router.post("/register", mainControllers.registerUser);
 router.get("/login", mainControllers.loginPage);
 router.post("/login", mainControllers.loginUser);
 router.get("/logout", mainControllers.logoutUser);
-router.get("/admin/users", mainControllers.getAllUsers);
-
+router.get("/admin/users", isAdmin, mainControllers.AllUsers); // ✅ controller name match
 
 // ====== Orders ======
 router.post("/place-order", isUser, mainControllers.placeOrder);
 router.get("/my-orders", isUser, mainControllers.userOrders);
 router.get("/admin-orders", isAdmin, mainControllers.adminOrders);
 router.get("/update-order/:id/:status", isAdmin, mainControllers.updateOrder);
-router.post("/admin/update-order/:id", mainControllers.updateOrderStatus);
+router.post("/admin/update-order/:id", isAdmin, mainControllers.updateOrderStatus);
 
+// ====== Delete ======
+router.post("/admin/delete-product/:id", isAdmin, mainControllers.deleteProduct);
+router.get("/delete-order/:id", isAdmin, mainControllers.deleteOrder);
 
-
-
-// ====== delete ======
-router.post("/admin/delete-product/:id", mainControllers.deleteProduct);
-
-router.get("/delete-order/:id", mainControllers.deleteOrder);
-
-
-
-
-//cart
-
+// ====== Cart ======
 router.get("/cart", isUser, mainControllers.viewCart);
 router.post("/add-to-cart", isUser, mainControllers.addToCart);
 router.get("/remove-from-cart/:id", isUser, mainControllers.removeFromCart);
 router.post("/checkout", isUser, mainControllers.checkout);
-
 
 module.exports = router;
