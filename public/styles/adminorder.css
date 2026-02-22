@@ -1,29 +1,35 @@
+/* Reset */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+/* Body */
 body{
     background-color: rgb(17,17,17);
     color:white;
     font-family: Arial, sans-serif;
 }
 
+/* Heading */
 h1{
     text-align:center;
-    margin:30px 0;
+    margin:30px 10px;
     color: rgb(245, 174, 76);
+    font-size:2rem;
 }
 
 /* Table */
 table{
-    width:90%;
+    width:95%;
+    max-width:1000px;
     margin:30px auto;
     border-collapse:collapse;
     background-color:#1e1e1e;
     border-radius:10px;
     overflow:hidden;
+    font-size:0.95rem;
 }
 
 /* Table Head */
@@ -32,13 +38,15 @@ th{
     color:black;
     padding:12px;
     text-transform:uppercase;
+    font-size:0.9rem;
 }
 
 /* Table Cells */
 td{
-    padding:12px;
+    padding:12px 8px;
     text-align:center;
     border-bottom:1px solid #333;
+    font-size:0.85rem;
 }
 
 /* Zebra Effect */
@@ -59,9 +67,9 @@ button{
     cursor:pointer;
     font-weight:bold;
     transition:0.3s ease;
+    font-size:0.85rem;
 }
 
-/* Accept Button */
 button:hover{
     opacity:0.85;
 }
@@ -74,13 +82,11 @@ button[value="completed"]{
     color:white;
 }
 
-/* Reject Button */
 button[value="rejected"]{
     background-color:#ff9800;
     color:black;
 }
 
-/* Delete Button */
 button[style]{
     background-color:red !important;
     color:white !important;
@@ -89,7 +95,8 @@ button[style]{
 /* Back Link */
 a{
     display:block;
-    width:150px;
+    width:90%;
+    max-width:150px;
     margin:30px auto;
     text-align:center;
     padding:10px;
@@ -99,8 +106,66 @@ a{
     border-radius:5px;
     font-weight:bold;
     transition:0.3s;
+    font-size:0.9rem;
 }
 
 a:hover{
     background-color:rgb(220,150,50);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px){
+    table{
+        font-size:0.9rem;
+    }
+    th, td{
+        padding:10px 6px;
+    }
+    button{
+        padding:5px 10px;
+        font-size:0.8rem;
+    }
+}
+
+@media (max-width: 768px){
+    h1{
+        font-size:1.6rem;
+    }
+    table{
+        width:98%;
+        font-size:0.85rem;
+    }
+    th, td{
+        padding:8px 4px;
+    }
+    button{
+        padding:4px 8px;
+        font-size:0.75rem;
+    }
+    a{
+        font-size:0.85rem;
+        padding:8px;
+    }
+}
+
+@media (max-width: 480px){
+    h1{
+        font-size:1.4rem;
+    }
+    table{
+        display:block;
+        overflow-x:auto; /* Horizontal scroll for small screens */
+    }
+    th, td{
+        padding:6px 4px;
+        font-size:0.75rem;
+    }
+    button{
+        padding:3px 6px;
+        font-size:0.7rem;
+    }
+    a{
+        padding:6px;
+        font-size:0.8rem;
+    }
 }

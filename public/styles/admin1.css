@@ -1,43 +1,50 @@
+/* Reset */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+/* Body */
 body{
     background-color: rgb(17,17,17);
     color:white;
     font-family: Arial, sans-serif;
 }
 
+/* Headings */
 h1{
     text-align:center;
-    margin:30px 0;
+    margin:30px 10px;
     color: rgb(245, 174, 76);
+    font-size:2rem;
 }
-/* Dashboard Stats */
+
 h2{
     text-align:center;
     margin-top:20px;
     color:rgb(245, 174, 76);
+    font-size:1.5rem;
 }
 
 p{
     text-align:center;
-    margin:10px 0;
+    margin:10px 10px;
     font-size:18px;
 }
 
 /* Horizontal Line */
 hr{
     margin:30px auto;
-    width:80%;
+    width:90%;
+    max-width:800px;
     border:1px solid #333;
 }
 
 /* Form Styling */
 form{
-    width:40%;
+    width:90%;
+    max-width:450px;
     margin:20px auto;
     background:#1e1e1e;
     padding:20px;
@@ -53,6 +60,7 @@ form input{
     border:none;
     border-radius:5px;
     outline:none;
+    font-size:1rem;
 }
 
 form input[type="file"]{
@@ -69,6 +77,7 @@ button{
     font-weight:bold;
     cursor:pointer;
     transition:0.3s;
+    font-size:0.95rem;
 }
 
 button:hover{
@@ -77,12 +86,14 @@ button:hover{
 
 /* Table */
 table{
-    width:90%;
+    width:95%;
+    max-width:1000px;
     margin:30px auto;
     border-collapse:collapse;
     background:#1e1e1e;
     border-radius:10px;
     overflow:hidden;
+    font-size:0.9rem;
 }
 
 th{
@@ -109,6 +120,8 @@ tr:hover{
 td form button{
     background:red;
     color:white;
+    padding:5px 10px;
+    font-size:0.85rem;
 }
 
 td form button:hover{
@@ -118,16 +131,74 @@ td form button:hover{
 /* Links */
 a{
     display:inline-block;
-    margin:20px 15px;
+    margin:10px 5px;
     padding:10px 15px;
     background:rgb(245, 174, 76);
     color:black;
     text-decoration:none;
     border-radius:5px;
     font-weight:bold;
+    font-size:0.95rem;
     transition:0.3s;
 }
 
 a:hover{
     background:rgb(220,150,50);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    form{
+        width:95%;
+        padding:18px;
+    }
+    table{
+        width:95%;
+        font-size:0.85rem;
+    }
+    button, a, td form button{
+        font-size:0.9rem;
+        padding:6px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1{
+        font-size:1.6rem;
+    }
+    h2{
+        font-size:1.3rem;
+    }
+    p{
+        font-size:0.95rem;
+    }
+    form input{
+        width:95%;
+    }
+    td{
+        padding:10px 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1{
+        font-size:1.4rem;
+    }
+    h2{
+        font-size:1.1rem;
+    }
+    p{
+        font-size:0.9rem;
+    }
+    form{
+        padding:15px;
+    }
+    button, a, td form button{
+        font-size:0.85rem;
+        padding:5px 10px;
+    }
+    table th, table td{
+        padding:8px 5px;
+        font-size:0.8rem;
+    }
 }

@@ -338,7 +338,7 @@ exports.checkout = (req,res)=>{
     res.redirect("/menu");
 };
 
-exports.getAllUsers = (req, res) => {
+exports.    AllUsers = (req, res) => {
 
     if (req.session.role !== "admin") {
         return res.redirect("/");
